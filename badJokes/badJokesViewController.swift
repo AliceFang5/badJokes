@@ -8,15 +8,27 @@
 import UIKit
 
 class badJokesViewController: UIViewController {
+    
+    @IBAction func unwindTonamebadJokesViewController(_ unwindSegue: UIStoryboardSegue) {
+//        let sourceViewController = unwindSegue.source
+        // Use data from the view controller which initiated the unwind segue
+        jokes = jokesLib.shuffled()
+        questionCount = 1
+        correctCount = 0
+        answer = 0
+        showQuestion()
+        nextButton.isHidden = true
+        resultButton.isHidden = true
+        supplyGuessButton.isHidden = false
+        print("unWind")
+    }
 
-    var jokes = [
-        Joke(question: "哪一個沒有領到酬勞", guess1: "蝴蝶", guess2: "螞蟻", guess3: "蜈蚣", answer: 3, reason: "無功（蜈蚣）不受祿"),
-        Joke(question: "哪一朵花最沒力", guess1: "茉莉花", guess2: "太陽花", guess3: "玫瑰花", answer: 1, reason: "好一朵美麗（沒力）的茉莉花"),
-        Joke(question: "誰玩遊戲一定會被淘汰", guess1: "獅子", guess2: "狼", guess3: "老虎", answer: 2, reason: "桃太郎（淘汰狼）"),
-        Joke(question: "哪一種人最愛搞怪", guess1: "日本人", guess2: "非洲人", guess3: "美國人", answer: 2, reason: "非洲人呼嘎蝦嘎（胡搞瞎搞）"),
+    var jokesLib = [
+         Joke(question: "哪一種人最愛搞怪", guess1: "日本人", guess2: "非洲人", guess3: "美國人", answer: 2, reason: "非洲人呼嘎蝦嘎（胡搞瞎搞）"),
         Joke(question: "哪一隻熊比較厲害", guess1: "灰熊", guess2: "黑熊", guess3: "白熊", answer: 1, reason: "非常（灰熊）厲害"),
         Joke(question: "鉛筆姓什麼", guess1: "林", guess2: "陳", guess3: "蕭", answer: 3, reason: "削（蕭）鉛筆")
     ]
+    var jokes = [Joke]()
     var questionCount = 1
     let questionCountMax = 3
     var correctCount = 0
@@ -63,7 +75,7 @@ class badJokesViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        jokes.shuffle()
+        jokes = jokesLib.shuffled()
         showQuestion()
         nextButton.isHidden = true
         resultButton.isHidden = true

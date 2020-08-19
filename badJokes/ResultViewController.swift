@@ -35,14 +35,27 @@ class ResultViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("result prepare")
+        if segue.identifier == "playSegue"{
+            print("Play Segue")
+//            if let controller = segue.destination as? badJokesViewController{
+//                controller.correctCount = 5
+//                print("controller.correctCount = 5")
+//            }
+        }else if segue.identifier == "addSegue"{
+            print("Add Segue")
+//            if let controller = segue.destination as? addBadJokeViewController{
+//                controller.joke = Joke(question: "qoo", guess1: "g1", guess2: "g2", guess3: "g3", answer: 3, reason: "what?!")
+//            }
+        }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }
