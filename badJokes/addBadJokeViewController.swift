@@ -35,7 +35,7 @@ class addBadJokeViewController: UIViewController {
         print("EditAction done")
         playButton.isHidden = false
 
-        joke = Joke(question: badJokeLabel[0].text!, guess1: badJokeLabel[1].text!, guess2: badJokeLabel[2].text!, guess3: badJokeLabel[3].text!, answer: Int(badJokeLabel[4].text!)!, reason: badJokeLabel[5].text!)
+        joke = Joke(question: badJokeLabel[0].text!, guess1: badJokeLabel[1].text!, guess2: badJokeLabel[2].text!, guess3: badJokeLabel[3].text!, answer: Int(badJokeLabel[4].text!) ?? 1, reason: badJokeLabel[5].text!)
         print(joke!)
     }
 
